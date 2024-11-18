@@ -293,7 +293,7 @@ ApplicationWindow {
                             id:                 setupButton
                             height:             toolSelectDialog._toolButtonHeight
                             Layout.fillWidth:   true
-                            text:               qsTr("Vehicle Setup")
+                            text:               qsTr("Vehicle Setup:테스트확인")
                             imageResource:      "/qmlimages/Gears.svg"
                             onClicked: {
                                 if (mainWindow.allowViewSwitch()) {
@@ -307,9 +307,22 @@ ApplicationWindow {
                             id:                 analyzeButton
                             height:             toolSelectDialog._toolButtonHeight
                             Layout.fillWidth:   true
-                            text:               qsTr("Analyze Tools")
+                            text:               qsTr("Analyze Tools:테스트")
                             imageResource:      "/qmlimages/Analyze.svg"
                             visible:            QGroundControl.corePlugin.showAdvancedUI
+                            onClicked: {
+                                if (mainWindow.allowViewSwitch()) {
+                                    mainWindow.closeIndicatorDrawer()
+                                    mainWindow.showAnalyzeTool()
+                                }
+                            }
+                        }
+                        SubMenuButton {
+                            id:                 analyzeButton1
+                            height:             toolSelectDialog._toolButtonHeight
+                            Layout.fillWidth:   true
+                            text:               qsTr("테스트버튼")
+                            imageResource:      "/qmlimages/Analyze.svg"
                             onClicked: {
                                 if (mainWindow.allowViewSwitch()) {
                                     mainWindow.closeIndicatorDrawer()
@@ -322,7 +335,7 @@ ApplicationWindow {
                             id:                 settingsButton
                             height:             toolSelectDialog._toolButtonHeight
                             Layout.fillWidth:   true
-                            text:               qsTr("Application Settings")
+                            text:               qsTr("Application Settings:테스트2")
                             imageResource:      "/res/QGCLogoFull"
                             imageColor:         "transparent"
                             visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup

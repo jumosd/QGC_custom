@@ -66,7 +66,7 @@ Rectangle {
         QGCToolBarButton {
             id:                     currentButton
             Layout.preferredHeight: viewButtonRow.height
-            icon.source:            "/res/QGCLogoFull"
+            icon.source:            "/res/wowlogo"
             logo:                   true
             onClicked:              mainWindow.showToolSelectDialog()
         }
@@ -77,7 +77,7 @@ Rectangle {
 
         QGCButton {
             id:                 disconnectButton
-            text:               qsTr("Disconnect")
+            text:               qsTr("연결끊기")
             onClicked:          _activeVehicle.closeVehicle()
             visible:            _activeVehicle && _communicationLost
         }
@@ -117,7 +117,7 @@ Rectangle {
         property bool   _userBrandingOutdoor:   QGroundControl.settingsManager.brandImageSettings.visible && _userBrandImageOutdoor.length != 0
         property string _brandImageIndoor:      brandImageIndoor()
         property string _brandImageOutdoor:     brandImageOutdoor()
-
+    
         function brandImageIndoor() {
             if (_userBrandingIndoor) {
                 return _userBrandImageIndoor

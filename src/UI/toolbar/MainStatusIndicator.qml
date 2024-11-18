@@ -36,13 +36,13 @@ RowLayout {
         implicitWidth:  maxWidth
         maxWidth:       ScreenTools.defaultFontPixelWidth * ScreenTools.largeFontPointRatio * 10
 
-        property string _commLostText:      qsTr("Communication Lost")
-        property string _readyToFlyText:    qsTr("Ready To Fly")
-        property string _notReadyToFlyText: qsTr("Not Ready")
-        property string _disconnectedText:  qsTr("Disconnected - Click to manually connect")
-        property string _armedText:         qsTr("Armed")
-        property string _flyingText:        qsTr("Flying")
-        property string _landingText:       qsTr("Landing")
+        property string _commLostText:      qsTr("통신 끊김")
+        property string _readyToFlyText:    qsTr("비행준비완료") 
+        property string _notReadyToFlyText: qsTr("준비되지 않음")
+        property string _disconnectedText:  qsTr("연결 끊김 - 수동으로 연결하려면 클릭하세요")
+        property string _armedText:         qsTr("시동걸림")
+        property string _flyingText:        qsTr("비행중")
+        property string _landingText:       qsTr("착륙중")
 
         function mainStatusText() {
             var statusText
@@ -118,6 +118,7 @@ RowLayout {
 
             property Component overallStatusComponent: _activeVehicle ? overallStatusIndicatorPage : overallStatusOfflineIndicatorPage
         }
+        
     }
 
     Item {
@@ -210,6 +211,7 @@ RowLayout {
                 }
 
                 Repeater {
+                    
                     model: _activeVehicle.sysStatusSensorInfo.sensorStatus
                     QGCLabel { text: modelData }
                 }
